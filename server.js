@@ -1,4 +1,4 @@
-cpnst express = require('express');
+const express = require('express');
 const app = express();
 
 
@@ -63,8 +63,12 @@ app.get('/menu', (req, res) => {
 });
 
 
-app.get'menu/:category', (req, res) => {
+app.get('/menu/:category', (req, res) => {
   const category = req.params.category;
   const filteredMenu = RESTAURANT.menu.filter(item => item.category === category);
   res.render('category', { category: category, menu: filteredMenu });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
 });
